@@ -37,7 +37,7 @@ export default function LaunchList(props) {
         
     <View style={{ flex: 1 }}>
         <FlatList
-            scrollEnabled={false}
+            scrollEnabled={true}
             style={{ flex: 1 }}
             data={pageData}
             renderItem={({ item, index }) => 
