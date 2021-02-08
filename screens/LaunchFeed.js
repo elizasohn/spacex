@@ -1,44 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { View } from 'react-native';
 import LaunchList from '../components/LaunchList';
+import useLaunchData from '../customHooks/useLaunchData';
 
 export default function LaunchFeed() {
-    const [launches, setLaunches] = useState([]);
-
-    useEffect(() => {
-        fetchLaunches();
-    }, [])
-
-    const fetchLaunches = async () => {
-        var requestOptions = {
-            method: 'GET',
-            redirect: 'follow'
-        };
-        await fetch("https://api.spacexdata.com/v3/launches", requestOptions)
-            .then(response => response.json())
-            .then(result => {
-                //map over results to return info objects for each entry with name, details and image
-                let launchData = result.map(launch => {
-                    let info = {
-                        "name": launch.mission_name,
-                        "details": launch.details,
-                        "image": launch.links.mission_patch
-                    }
-                    return info;
-                })
-                //set state variable to array of objects
-                setLaunches(launchData);  
-            })
-            .catch(error => console.log('error', error));
-    }
-
+    const [launches] = useLaunchData()
+    console.log('launches', launches);
+    
     return (
         <View style={{ flex: 1 }}>
-            <View style={{ flex: 1 }}>
                 <LaunchList
                     data={launches}
                 />
-            </View>
         </View>
     );
 }
