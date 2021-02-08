@@ -4,7 +4,8 @@ A SpaceX Launch Explorer
 The goal of this assignment is to build a SpaceX Launch Explorer in React Native. 
 Android is used as an emulator.
 
-(https://user-images.githubusercontent.com/56556859/107211325-3f31e480-69ba-11eb-97bf-9abe8a874655.png)
+<img width="282" alt="androidspacex" src="https://user-images.githubusercontent.com/56556859/107212801-596cc200-69bc-11eb-8933-265346732efa.png">
+
 
 ## SetUp Instructions
 You must have Android Studio to use an Android Emulator, or connect your Android Device.
